@@ -44,7 +44,7 @@ object ShutdownFilter extends EssentialFilter with ShutdownFilterConfig {
     Logger.debug("Getting read lock ...")
     val stamp = lock.tryReadLock()
 
-    if (stamp > 0) {
+    if (isReadLockAcquired(stamp)) {
       result.copy(body = result.body.onDoneEnumerating({
         Logger.debug("Releasing read lock ...")
         lock.unlock(stamp)
@@ -54,4 +54,6 @@ object ShutdownFilter extends EssentialFilter with ShutdownFilterConfig {
       ServiceUnavailable.copy(connection = HttpConnection.Close)
     }
   }
+
+  private def isReadLockAcquired(stamp: Long): Boolean = stamp > 0
 }
