@@ -18,7 +18,7 @@ See also:
 
 <br />
 
-*Build and run using the following commands.*
+###Build and run using the following commands.###
 
 sbt clean stage
 
