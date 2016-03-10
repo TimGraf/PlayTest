@@ -7,7 +7,7 @@ This is based on the following topic.
 <br />
 <br />
 
-In the filter, [ShutdownFilter](app/filters/ShutDownFilter.scala) , the approach from the link above was modified to use `StampLock` instead of `ReentrantReadWriteLock` because the call to `lock.unlock()` used in `body.onDoneEnumerating()` occurs on another thread and will throw the following.
+In the filter, [ShutdownFilter](app/filters/ShutDownFilter.scala) , the approach from the link above was modified to use `StampedLock` instead of `ReentrantReadWriteLock` because the call to `lock.unlock()` used in `body.onDoneEnumerating()` occurs on another thread and will throw the following.
 
 `java.lang.IllegalMonitorStateException  "attempt to unlock read lock, not locked by current thread"`
 
