@@ -2,7 +2,7 @@
 
 This is based on the following topic.
 
-[Play framework GiHub Issue: 1789](https://github.com/playframework/playframework/issues/1789)
+[Play framework GiHub Issue: 1789](https://github.com/playframework/playframework/issues/1789#issuecomment-28023652)
 
 The filter will provide a graceful shutdown period, where all new requests are responded to with 503 Service Unavailable.  Any remaining processing will have an opportunity to complete.
 
